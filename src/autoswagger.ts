@@ -511,7 +511,7 @@ export class AutoSwagger {
       comments.forEach((comment) => {
         if (comment.type !== "BlockComment") return;
         if (!comment.value.includes("@" + action)) return;
-        let lines = comment.value.split("\n");
+        let lines = comment.value.split("\n").map((l) => l.trim());
         lines = lines.filter((l) => l != "");
 
         annotations[action] = this.parseAnnotations(lines);
